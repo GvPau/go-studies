@@ -20,7 +20,12 @@ Content-Type: application/json
 Authorization: Bearer API_TOKEN
 
 ###
-GET http://localhost:8000/api/v1/books/author/Author%20A
+GET http://localhost:8000/api/v1/books/filter/author/Author%20A
+Content-Type: application/json
+Authorization: Bearer API_TOKEN
+
+###
+GET http://localhost:8000/api/v1/books/filter/price/1.99?operator=gt
 Content-Type: application/json
 Authorization: Bearer API_TOKEN
 
