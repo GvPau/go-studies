@@ -14,12 +14,13 @@ func SetupRouter() *mux.Router {
 
 	r.Use(middlewares.JsonMiddleware)
 	r.Use(middlewares.Logging)
-	r.Use(middlewares.Authentication)
+	//r.Use(middlewares.Authentication)
+	r.Use(middlewares.RateLimitMiddlware)
 
 	r.HandleFunc("/", HomeHandler).Methods("GET")
 	r.HandleFunc("/api", APIHandler).Methods("GET")
 
-	r.HandleFunc("/api/v1/books/{field}/{value}", books.GetFilteredBooksHandler).Methods("GET")
+	r.HandleFunc("/api/v1/books/filter/{field}/{value}", books.GetFilteredBooksHandler).Methods("GET")
 	r.HandleFunc("/api/v1/books/{id}", books.GetBookHandler).Methods("GET")
 	r.HandleFunc("/api/v1/books", books.GetBooksHandler).Methods("GET")
 	r.HandleFunc("/api/v1/books", books.CreateBookHandler).Methods("POST")
