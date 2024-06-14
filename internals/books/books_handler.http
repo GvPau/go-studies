@@ -1,0 +1,31 @@
+GET http://localhost:8000/api/v1/books
+Content-Type: application/json
+Authorization: Bearer API_TOKEN
+
+###
+POST http://localhost:8000/api/v1/books
+Content-Type: application/json
+Authorization: Bearer API_TOKEN
+
+{
+    "id": "2",
+    "title": "The Go Programming Language",
+    "author": "Alan A. A. Donovan",
+    "price": 39.99
+}
+
+###
+GET http://localhost:8000/api/v1/books/1
+Content-Type: application/json
+Authorization: Bearer API_TOKEN
+
+###
+GET http://localhost:8000/api/v1/books/filter/author/Author%20A
+Content-Type: application/json
+Authorization: Bearer API_TOKEN
+
+###
+GET http://localhost:8000/api/v1/books/filter/price/1.99?operator=gt
+Content-Type: application/json
+Authorization: Bearer API_TOKEN
+
